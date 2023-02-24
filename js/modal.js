@@ -3,7 +3,6 @@ export const Modal = {
   message: document.querySelector('.modal .title span'),
   btnClose: document.querySelector('.modal button.close'),
 
-
   open() {
     Modal.wrapper.classList.add('open');
   },
@@ -14,4 +13,12 @@ export const Modal = {
 
 Modal.btnClose.onclick = () => {
   Modal.close();
+}
+
+window.addEventListener('keydown', handleKeyDown);
+
+function handleKeyDown(event) {
+  if (event.code === 'Escape') {
+    Modal.close();
+  }
 }

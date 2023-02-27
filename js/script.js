@@ -1,6 +1,6 @@
 import { Modal } from './modal.js';
 import { AlertError } from './alert-error.js';
-import { notNumber, IMC } from './utils.js'
+import { notNumber, calculateIMC } from './utils.js'
 
 const form = document.querySelector('form')
 const inputWeight = document.querySelector('#weight')
@@ -31,3 +31,8 @@ function displayResultMessage(result) {
   Modal.message.innerText = message;
   Modal.open();
 }
+
+//fechar a janela de erro ao digitar no campo
+
+inputWeight.oninput = () => AlertError.close()
+inputHeight.oninput = () => AlertError.close()
